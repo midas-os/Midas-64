@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "string.h": "c",
+        "kernel.h": "c",
+        "text_utils.h": "c",
+        "sysinfo.h": "c"
+    }
+}
