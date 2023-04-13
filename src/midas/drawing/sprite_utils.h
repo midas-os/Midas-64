@@ -13,4 +13,10 @@ sprite_t *read_sprite_from_file(const char* filename) {
     return sprite;
 }
 
+void show_background(display_context_t disp, const char* filename) {
+    sprite_t *sprite = read_sprite_from_file(filename);
+    graphics_draw_sprite_trans(disp, 0, 0, sprite);
+    free(sprite);
+}
+
 #endif

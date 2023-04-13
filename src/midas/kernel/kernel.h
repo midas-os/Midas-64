@@ -48,13 +48,13 @@ float cursor_x = WIDTH / 2;
 float cursor_y = HEIGHT / 2;
 void kernel_main() {
     float cursor_speed = 0.05f;
+    int color = 0x0;
 
     /* Get display context */
     display_context_t disp = get_display_ctx();
 
-    /* Draw a blue background */
-    int color = graphics_make_color(0, 0, 255, 255);
-    graphics_fill_screen(disp, color);
+    /* Draw the background */
+    show_background(disp, "./backgrounds/desktop-01.sprite");
 
     /* Draw white text */
     color = graphics_make_color(255, 255, 255, 255);
