@@ -46,47 +46,51 @@ void draw_logo(display_context_t disp, int y) {
 
 float cursor_x = WIDTH / 2;
 float cursor_y = HEIGHT / 2;
-void kernel_main() {
-    float cursor_speed = 0.05f;
-    int color = 0x0;
+sprite_t *background = NULL;
+sprite_t *cursor = NULL;
 
-    /* Get display context */
-    display_context_t disp = get_display_ctx();
+void kernel_start() {
+    background = read_sprite_from_file("./backgrounds/desktop-01.sprite");
+    cursor = read_sprite_from_file("./cursor.sprite");
+}
 
-    /* Draw the background */
-    show_background(disp, "./backgrounds/desktop-01.sprite");
+void kernel_update() {
+    while(1) {
+        float cursor_speed = 0.05f;
+        int color = 0x0;
 
-    /* Draw white text */
-    color = graphics_make_color(255, 255, 255, 255);
-    graphics_set_color(color, 0x0);
+        /* Get display context */
+        display_context_t disp = get_display_ctx();
 
-    /* Draw text */
-    draw_text_centered_x(disp, 100, "MidAS Desktop");
-    draw_text_centered_x(disp, 110, "Work In Progress");
+        /* Draw the background */
+        graphics_draw_sprite_trans(disp, 0, 0, background);
 
-    /* Test Sprite */
-    static sprite_t *sprite;
-    if(sprite == NULL) {
-        sprite = read_sprite_from_file("./cursor.sprite");
+        /* Draw white text */
+        color = graphics_make_color(255, 255, 255, 255);
+        graphics_set_color(color, 0x0);
+
+        /* Draw text */
+        draw_text_centered_x(disp, 100, "MidAS Desktop");
+        draw_text_centered_x(disp, 110, "Work In Progress");
+
+        /* Cursor */
+        graphics_draw_sprite_trans(disp, floor(cursor_x), floor(cursor_y), cursor);
+
+        /* Render */
+        display_show(disp);
+
+        /* Get controller input */
+        controller_scan();
+        struct controller_data keys = get_keys_pressed();
+
+        /* Increment cursor pos */
+        cursor_x += keys.c[0].x * cursor_speed;
+        cursor_y += keys.c[0].y * cursor_speed * -1.0f;
+
+        /* Clamp cursor pos */
+        cursor_x = clamp(cursor_x, 0, 320);
+        cursor_y = clamp(cursor_y, 0, 240);
     }
-
-    /* Draw sprite */
-    graphics_draw_sprite_trans(disp, floor(cursor_x), floor(cursor_y), sprite);
-
-    /* Render */
-    display_show(disp);
-
-    /* Get controller input */
-    controller_scan();
-    struct controller_data keys = get_keys_pressed();
-
-    /* Increment cursor pos */
-    cursor_x += keys.c[0].x * cursor_speed;
-    cursor_y += keys.c[0].y * cursor_speed * -1.0f;
-
-    /* Clamp cursor pos */
-    cursor_x = clamp(cursor_x, 0, 320);
-    cursor_y = clamp(cursor_y, 0, 240);
 }
 
 #endif

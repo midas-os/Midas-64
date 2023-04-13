@@ -13,13 +13,7 @@ int main(void)
 {
     init();
 
-    int mode = 0;
     while(1) {
-        if(mode == 1) {
-            kernel_main();
-            continue;
-        }
-
         int color = 0x0;
 
         /* Get display context */
@@ -47,7 +41,10 @@ int main(void)
         struct controller_data keys = get_keys_pressed();
 
         if(keys.c[0].A) {
-            mode = 1;
+            break;
         }
     }
+
+    kernel_start();
+    kernel_update();
 }
