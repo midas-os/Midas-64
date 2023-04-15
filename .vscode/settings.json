@@ -3,6 +3,8 @@
         "string.h": "c",
         "kernel.h": "c",
         "text_utils.h": "c",
-        "sysinfo.h": "c"
+        "sysinfo.h": "c",
+        "iostream": "cpp",
+        "cmath": "cpp"
     }
 }
