@@ -3,6 +3,8 @@
 
 #include "cursor.hpp"
 
+#include "../sysinfo.hpp"
+
 #include "../graphics/sprite.hpp"
 #include "../graphics/display.hpp"
 
@@ -16,7 +18,9 @@
 
 namespace midas::desktop {
     void desktop_update() {
-        cursor c("cursor.sprite", 1000, 1000);
+        using namespace midas::text;
+
+        cursor c("cursor.sprite", WIDTH / 2, HEIGHT / 2);
 
         while(1) {
             float cursor_speed = 0.05f;
@@ -37,6 +41,7 @@ namespace midas::desktop {
             /* Draw text */
             // draw_text_center_x(disp, 100, "MidAS Desktop");
             // draw_text_center_x(disp, 110, "Work In Progress");
+            draw_text_center_x("MidAS Desktop", HEIGHT / 2, disp);
 
             /* Cursor */
             graphics_draw_sprite_trans(disp, floor(c.x), floor(c.y), c.get_sprite());

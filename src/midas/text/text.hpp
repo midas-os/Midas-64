@@ -3,8 +3,7 @@
 #pragma once
 
 namespace midas::text {
-    class colored_text
-    {
+    class colored_text {
     public:
         colored_text(const std::string& text, const uint32_t& color, const uint32_t& background, display_context_t disp)
             : m_text(text), m_color(color), m_background(background), m_disp(disp)
