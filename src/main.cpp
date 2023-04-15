@@ -34,11 +34,9 @@ int main(void)
         /* Draw the MidAS 64 Logo */
         midas::draw_logo(disp, middle_y - 16);
 
-        // /* Version text and start prompt */
+        /* Version text and start prompt */
         color = graphics_make_color(255, 255, 255, 255);
         graphics_set_color(color, 0x0);
-        // draw_text_centered_x(disp, middle_y + 16, "Version 0.0.1");
-        // draw_text_centered_x(disp, middle_y + 30, "Press A to launch");
         
         char buffer[32];
         sprintf(buffer, "Version %s", VERSION);
