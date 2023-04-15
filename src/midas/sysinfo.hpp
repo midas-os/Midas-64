@@ -4,7 +4,7 @@
 
 /* OS Info */
 #define NAME "MIDAS 64"
-#define VERSION "0.1.0"
+#define VERSION "DEV 0.1.0"
 
 /* Display */
 #define WIDTH 320

@@ -39,8 +39,11 @@ int main(void)
         graphics_set_color(color, 0x0);
         // draw_text_centered_x(disp, middle_y + 16, "Version 0.0.1");
         // draw_text_centered_x(disp, middle_y + 30, "Press A to launch");
+        
+        char buffer[32];
+        sprintf(buffer, "Version %s", VERSION);
 
-        draw_text_center_x("Version 0.0.1", middle_y, disp);
+        draw_text_center_x(buffer, middle_y, disp);
         draw_text_center_x("Press A to launch", middle_y + 16, disp);
 
         /* Render */
