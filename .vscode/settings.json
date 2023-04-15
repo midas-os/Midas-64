@@ -5,6 +5,7 @@
         "text_utils.h": "c",
         "sysinfo.h": "c",
         "iostream": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "vector": "cpp"
     }
 }

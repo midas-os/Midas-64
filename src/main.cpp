@@ -56,5 +56,14 @@ int main(void)
         }
     }
 
+    sprite_t* icon = midas::graphics::read_from_filesystem("app.sprite");
+
+    midas::application::application my_app("Hello", icon);
+    my_app.start = []() {
+        midas::text::draw_text_center_x("Hello World!", 100, midas::graphics::get_display_ctx());
+    };
+
+    midas::desktop::apps.push_back(&my_app);
+
     midas::desktop::desktop_update();
 }

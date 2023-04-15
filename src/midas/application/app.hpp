@@ -1,15 +1,29 @@
 #pragma once
 
+#include <functional>
+
 namespace midas::application
 {
-    class Application {
+    class application {
     public:
-        Application() = default;
-        virtual ~Application() = default;
+        application() = delete;
 
-        virtual void start() = 0;
-        virtual void update() = 0;
-        virtual void stop() = 0;
+        application(const char *name, sprite_t *icon)
+            : name(name), icon(icon)
+        { }
+
+        ~application() = default;
+
+        /* Variables */
+        const char *name;
+        sprite_t *icon;
+
+        /* Functions */
+        /* void(*name)(paremets) = function as variable */
+        /* [](parameters) { ... } = lambda expression */
+        void (*start)() = []() { };
+        void (*update)() = []() { };
+        void (*stop)() = []() { };
 
         void run() {
             start();
@@ -24,5 +38,5 @@ namespace midas::application
 
     protected:
         bool m_running = false;
-    }
+    };
 }
