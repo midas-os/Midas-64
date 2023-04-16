@@ -23,4 +23,4 @@ libdragon make
 ```
 
 ## How to run
-To run MidAS 64, you need a Nintendo 64 emulator. We recommend [mupen64plus](https://mupen64plus.org/)
+To run MidAS 64, you need a Nintendo 64 emulator. We recommend [simple64](https://simple64.github.io/)
