@@ -17,7 +17,7 @@ git clone --recursive https://github.com/midas-os/Midas-64.git
 ```
 
 ### Building
-To build MidAS 64, run the following command in the root directory of the project:
+To build MidAS 64, run the following command in the root directory of the project (only possible if you have [libdragon-cli](https://github.com/rasky/libdragon-cli) installed and added to your path):
 ```bash
 libdragon make
 ```
