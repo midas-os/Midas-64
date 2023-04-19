@@ -8,6 +8,7 @@ It is currently in development and is not yet ready for use.
 ## How to build
 ### Prerequisites
 - [libdragon](https://libdragon.dev)
+- [libdragon-cli](https://github.com/rasky/libdragon-cli)
 
 ### Cloning
 When cloning with git, make sure to use the `--recursive` flag to clone the submodules.
